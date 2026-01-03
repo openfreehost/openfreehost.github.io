@@ -11,12 +11,15 @@
       document.body.innerText = "Login failed";
     }
 
-    fetch("https://h569279v9k.execute-api.ap-south-1.amazonaws.com/callback", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include", // IMPORTANT
-      body: JSON.stringify({ code })
-    })
+    //fetch("https://h569279v9k.execute-api.ap-south-1.amazonaws.com/callback", {
+      //method: "POST",
+      //headers: { "Content-Type": "application/json" },
+      //credentials: "include", // IMPORTANT
+      //body: JSON.stringify({ code })
+    //})
+     fetch("https://h569279v9k.execute-api.ap-south-1.amazonaws.com/callback", {
+	method: "GET"
+     })
     .then(() => {
       window.location.href = "/dashboard.html";
     })
