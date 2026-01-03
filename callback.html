@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<!-- Favicon -->
+  	<link rel="icon" type="image/png" href="favicon.png">
+</head>
 <body>
   <p>Signing you in...</p>
 
@@ -10,7 +14,7 @@
     if (!code) {
       document.body.innerText = "Login failed";
     } else {
-      fetch("https://8zmagy2xrl.execute-api.ap-south-1.amazonaws.com/prod/callback", {
+      fetch("https://aahkwa84fa.execute-api.ap-south-1.amazonaws.com/prod/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // allow backend to set HTTP-only cookies
