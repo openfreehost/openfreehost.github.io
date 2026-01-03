@@ -9,20 +9,25 @@
 
     if (!code) {
       document.body.innerText = "Login failed";
+    } else {
+      fetch("https://8zmagy2xrl.execute-api.ap-south-1.amazonaws.com/prod/callback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // allow backend to set HTTP-only cookies
+        body: JSON.stringify({ code })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Server error");
+        return res.json();
+      })
+      .then(() => {
+        window.location.href = "/dashboard.html"; // redirect after login
+      })
+      .catch(err => {
+        console.error(err);
+        document.body.innerText = "Authentication error. Please try again.";
+      });
     }
-
-    fetch("https://8zmagy2xrl.execute-api.ap-south-1.amazonaws.com/callback", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include", // IMPORTANT
-      body: JSON.stringify({ code })
-    })
-    .then(() => {
-      window.location.href = "/dashboard.html";
-    })
-    .catch(() => {
-      document.body.innerText = "Authentication error";
-    });
   </script>
 </body>
 </html>
