@@ -15,7 +15,7 @@
       method: "POST",
       //headers: { "Content-Type": "application/json" },
       //credentials: "include", // IMPORTANT
-      //body: JSON.stringify({ code })
+      body: JSON.stringify({ code })
     })
     .then(() => {
       window.location.href = "/dashboard.html";
