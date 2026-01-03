@@ -13,8 +13,8 @@
 
     fetch("https://x8b8v80e3h.execute-api.ap-south-1.amazonaws.com/callback", {
       method: "POST",
-      //headers: { "Content-Type": "application/json" },
-      //credentials: "include", // IMPORTANT
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // IMPORTANT
       body: JSON.stringify({ code })
     })
     .then(() => {
